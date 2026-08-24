@@ -45,6 +45,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.ui.text.google.fonts)
     implementation(libs.material)
 
     //compose
@@ -54,6 +55,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+
 
     // test
     testImplementation(libs.junit)
