@@ -14,7 +14,7 @@ class CookiesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             AppTheme(darkTheme = false) {
-                CookiesScreen()
+                CookiesScreen(CookieUiState.isCookiesPrediction)
             }
         }
     }
