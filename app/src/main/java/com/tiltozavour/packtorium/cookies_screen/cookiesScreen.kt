@@ -47,7 +47,9 @@ import kotlin.random.Random
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun CookiesScreen() {
+internal fun CookiesScreen(
+    uiState: CookieUiState
+) {
     Scaffold(
         bottomBar = {
             BottomAppBar(
@@ -91,7 +93,7 @@ internal fun CookiesScreen() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 AppBar()
-                CookiesFrame()
+                CookiesFrame(uiState)
                 Notification()
                 SendAndCollection()
                 HorizontalDivider(
@@ -156,7 +158,7 @@ fun AppBar() {
 }
 
 @Composable
-fun CookiesFrame() {
+fun CookiesFrame(uiState: CookieUiState) {
     Box(
         modifier = Modifier
             .fillMaxWidth(1f)
@@ -181,26 +183,44 @@ fun CookiesFrame() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Image(
-                modifier = Modifier
-                    .size(100.dp)
-                    .padding(20.dp),
-                alignment = Alignment.Center,
-                painter = painterResource(R.drawable.fortune_cookie),
-                contentDescription = "cookies",
-            )
-            TitleAndSubtitle(title = "Crack cookie", subtitle = "The stars....")
-            Button(
-                modifier = Modifier.padding(20.dp),
-                onClick = {}) {
-                Text(
-                    color = MaterialTheme.colorScheme.surfaceBright,
-                    style = MaterialTheme.typography.labelSmall,
-                    text = "Open now"
-                )
+            when(uiState){
+                CookieUiState.isCookiesPrediction -> CookiesPredictionMode()
+                CookieUiState.isMain -> CookiesMain()
             }
         }
     }
+}
+
+@Composable
+private fun CookiesMain(){
+    Image(
+        modifier = Modifier
+            .size(100.dp)
+            .padding(20.dp),
+        alignment = Alignment.Center,
+        painter = painterResource(R.drawable.fortune_cookie),
+        contentDescription = "cookies",
+    )
+    TitleAndSubtitle(title = "Crack cookie", subtitle = "The stars....")
+    Button(
+        modifier = Modifier.padding(20.dp),
+        onClick = {}) {
+        Text(
+            color = MaterialTheme.colorScheme.surfaceBright,
+            style = MaterialTheme.typography.labelSmall,
+            text = "Open now"
+        )
+    }
+}
+
+@Composable
+private fun CookiesPredictionMode(){
+    Text(
+        modifier = Modifier.padding(14.dp),
+        color = MaterialTheme.colorScheme.surfaceBright,
+        style = MaterialTheme.typography.labelSmall,
+        text = "Предсказание открыто"
+    )
 }
 
 @Composable
@@ -309,6 +329,6 @@ data class Star(
 @Composable
 fun CookiesPreview() {
     AppTheme(darkTheme = false) {
-        CookiesScreen()
+        CookiesScreen(uiState = CookieUiState.isCookiesPrediction)
     }
 }
