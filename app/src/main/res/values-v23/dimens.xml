@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="border">0.5dp</dimen>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_small_extra">12dp</dimen>
+    <dimen name="padding_medium">16dp</dimen>
+    <dimen name="padding_medium_extra">18dp</dimen>
+    <dimen name="padding_card">24dp</dimen>
+    <dimen name="padding_card_extra">28dp</dimen>
+
+    <dimen name="image_medium">20dp</dimen>
+    <dimen name="image_medium_extra">24dp</dimen>
+
+    <dimen name="size_icon_medium">32dp</dimen>
+    <dimen name="size_card">40dp</dimen>
+    <dimen name="extra_size_card">100dp</dimen>
+
+    <dimen name="extra_size_image">240dp</dimen>
+
+</resources>
