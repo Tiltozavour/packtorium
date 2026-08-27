@@ -38,7 +38,6 @@ fun PredictionScreens(
             TextWithIconBack(
                 onClickBack = onClickBack,
                 modifier = modifier
-                    .clickable { onClickBack() }
                     .padding(dimensionResource(R.dimen.padding_medium_extra)))
         }
     ) { innerPadding ->
