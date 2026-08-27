@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Packtorium</string>
+
+    <string name="main_page_title">Cosmic Cookie</string>
+    <string name="date_main_page">Friday, AUG 21</string>
+
+    <string name="title_crack_cookie">Crack Today`s Cookie</string>
+    <string name="subtitle_crack_cookie">The stars have a message for you</string>
+    <string name="button_crack_cookie">Open now</string>
+
+    <string name="notification_cookie">%s cookies waiting</string>
+    <string name="notification_cookie_subtitle">From your cosmic friends</string>
+
+    <string name="send_cookies_title">Send Cookie</string>
+    <string name="send_cookies_subtitle">Share a fortune</string>
+
+    <string name="collection_title">Collection</string>
+    <string name="collection_subtitle">Your saved fortunes</string>
+
+    <string name="back_button">back</string>
+    <string name="button_cookie">Crack It Open</string>
+
+    <string name="tap_cookie_title">TAP THE COOKIE TO CRACK IT</string>
+    
+    <string name="quote">Длинная цитата для примера будет тут красивым шрифтом когда-нибудь, точно</string>
+
+
+</resources>
