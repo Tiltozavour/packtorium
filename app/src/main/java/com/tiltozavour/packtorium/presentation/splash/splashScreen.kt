@@ -1,4 +1,4 @@
-package com.tiltozavour.packtorium.splash
+package com.tiltozavour.packtorium.presentation.splash
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview

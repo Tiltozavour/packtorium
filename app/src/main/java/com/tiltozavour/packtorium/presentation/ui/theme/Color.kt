@@ -1,4 +1,4 @@
-package com.tiltozavour.packtorium.ui.theme
+package com.tiltozavour.packtorium.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

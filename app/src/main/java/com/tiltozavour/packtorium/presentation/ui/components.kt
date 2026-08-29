@@ -1,4 +1,4 @@
-package com.tiltozavour.packtorium.ui
+package com.tiltozavour.packtorium.presentation.ui
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
@@ -10,13 +10,17 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -32,8 +36,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.tiltozavour.packtorium.R
-import com.tiltozavour.packtorium.cookies_screen.Star
+import com.tiltozavour.packtorium.presentation.cookies_screen.Star
 import kotlin.random.Random
 
 
@@ -132,10 +137,12 @@ internal fun TextWithIcon(title: String, subtitle: String, painter: Int) {
 
 @Composable
 internal fun TextWithIconBack(modifier: Modifier = Modifier, onClickBack: () -> Unit) {
-    Button( onClick = onClickBack,
+    Button(
+        onClick = onClickBack,
         colors = ButtonDefaults.buttonColors().copy(
-            containerColor = Color.Transparent)
-        ) {
+            containerColor = Color.Transparent
+        )
+    ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = modifier.padding(dimensionResource(R.dimen.padding_small))
@@ -213,9 +220,29 @@ internal fun BottomBar(icon: Int) { //TODO клики прописать
     }
 }
 
+@Composable
+internal fun CircularIndicator(){
+    CircularProgressIndicator(
+        modifier = Modifier.width(64.dp),
+        color = MaterialTheme.colorScheme.secondary,
+        trackColor = MaterialTheme.colorScheme.surfaceVariant,
+    )
+}
+
+@Composable
+internal fun CookieDivider(){
+    HorizontalDivider(
+        modifier = Modifier.padding(
+            horizontal = dimensionResource(R.dimen.padding_small_extra),
+            vertical = dimensionResource(R.dimen.padding_card)
+        ),
+        color = MaterialTheme.colorScheme.onSecondary,
+        thickness = dimensionResource(R.dimen.border_medium)
+    )
+}
 
 @Preview
 @Composable
 fun PreviewElement() {
-    TextWithIconBack(onClickBack = {})
+    CircularIndicator()
 }

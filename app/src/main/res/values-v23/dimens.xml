@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="border">0.5dp</dimen>
+    <dimen name="border_medium">1dp</dimen>
 
     <dimen name="padding_small">8dp</dimen>
     <dimen name="padding_small_extra">12dp</dimen>

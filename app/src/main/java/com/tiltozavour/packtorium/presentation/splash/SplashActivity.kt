@@ -1,4 +1,4 @@
-package com.tiltozavour.packtorium.splash
+package com.tiltozavour.packtorium.presentation.splash
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
