@@ -10,12 +10,12 @@
         android:supportsRtl="true">
 
         <activity
-            android:name=".splash.SplashActivity"
+            android:name=".presentation.splash.SplashActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".cookies_screen.CookiesActivity"
+            android:name=".presentation.cookies_screen.CookiesActivity"
             android:exported="true"
             android:theme="@style/Theme.Packtorium"
             android:windowSoftInputMode="adjustResize">

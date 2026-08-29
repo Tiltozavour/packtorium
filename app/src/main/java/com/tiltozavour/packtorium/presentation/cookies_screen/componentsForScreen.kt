@@ -1,4 +1,4 @@
-package com.tiltozavour.packtorium.cookies_screen
+package com.tiltozavour.packtorium.presentation.cookies_screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -26,9 +26,9 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import com.tiltozavour.packtorium.R
-import com.tiltozavour.packtorium.ui.CardCustom
-import com.tiltozavour.packtorium.ui.TextWithIcon
-import com.tiltozavour.packtorium.ui.TitleAndSubtitle
+import com.tiltozavour.packtorium.presentation.ui.CardCustom
+import com.tiltozavour.packtorium.presentation.ui.TextWithIcon
+import com.tiltozavour.packtorium.presentation.ui.TitleAndSubtitle
 
 @Composable
 fun AppBar() {

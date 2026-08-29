@@ -1,4 +1,4 @@
-package com.tiltozavour.packtorium.cookies_screen
+package com.tiltozavour.packtorium.presentation.cookies_screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -15,24 +15,27 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.tiltozavour.packtorium.R
-import com.tiltozavour.packtorium.ui.BottomBar
-import com.tiltozavour.packtorium.ui.Stars
+import com.tiltozavour.packtorium.presentation.ui.BottomBar
+import com.tiltozavour.packtorium.presentation.ui.Stars
 
 
 @Composable
-fun CookiesMainScreen(
+internal fun CookiesMainScreen(
+    viewModel: CookiesScViewModel,
     onClickPrediction: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val uiState by viewModel.uiCookiesState.collectAsStateWithLifecycle()
     Scaffold(
         bottomBar = {
             BottomAppBar(
@@ -40,7 +43,7 @@ fun CookiesMainScreen(
                 contentPadding = PaddingValues(horizontal = dimensionResource(R.dimen.padding_medium)),
                 actions = {
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
+                        modifier = modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
                         BottomBar(R.drawable.crystal_ball)
@@ -58,7 +61,7 @@ fun CookiesMainScreen(
         val brushy = 900 / 0.5f
         val radius = 100 / 0.3f
         Box(
-            modifier = Modifier
+            modifier = modifier
                 .padding(innerPadding)
                 .fillMaxSize()
                 .background(
@@ -76,7 +79,7 @@ fun CookiesMainScreen(
         ) {
             Stars()
             Column(
-                modifier = Modifier.padding(dimensionResource(R.dimen.padding_small_extra)),
+                modifier = modifier.padding(dimensionResource(R.dimen.padding_small_extra)),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 AppBar()
@@ -84,7 +87,7 @@ fun CookiesMainScreen(
                 Notification()
                 SendAndCollection()
                 HorizontalDivider(
-                    modifier = Modifier.padding(
+                    modifier = modifier.padding(
                         horizontal = dimensionResource(R.dimen.padding_small_extra),
                         vertical = dimensionResource(R.dimen.padding_card)
                     ),
@@ -95,7 +98,7 @@ fun CookiesMainScreen(
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    text = stringResource(R.string.quote)
+                    text = uiState.quota.quotaDay
                 )
             }
 

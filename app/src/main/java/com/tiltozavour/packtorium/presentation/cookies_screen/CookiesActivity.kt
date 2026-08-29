@@ -1,10 +1,10 @@
-package com.tiltozavour.packtorium.cookies_screen
+package com.tiltozavour.packtorium.presentation.cookies_screen
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.tiltozavour.packtorium.CookiesScreen
-import com.tiltozavour.packtorium.ui.theme.AppTheme
+import com.tiltozavour.packtorium.presentation.CookiesScreen
+import com.tiltozavour.packtorium.presentation.ui.theme.AppTheme
 
 class CookiesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
