@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -38,6 +39,7 @@ import com.tiltozavour.packtorium.presentation.ui.CookieDivider
 import com.tiltozavour.packtorium.presentation.ui.Stars
 import com.tiltozavour.packtorium.presentation.ui.TextWithIconBack
 import com.tiltozavour.packtorium.presentation.ui.theme.AppTheme
+import kotlinx.coroutines.launch
 
 @Composable
 internal fun PredictionScreens(
@@ -46,13 +48,14 @@ internal fun PredictionScreens(
     modifier: Modifier = Modifier,
 ) {
     val uiState by viewModel.uiPredictState.collectAsStateWithLifecycle()
+    val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
             .background(color = MaterialTheme.colorScheme.background),
         snackbarHost = {
-            SnackbarHost(hostState = SnackbarHostState())
+            SnackbarHost(hostState = snackbarHostState)
         },
         topBar = {
             TextWithIconBack(
@@ -73,7 +76,7 @@ internal fun PredictionScreens(
         ) {
             when (uiState.currentScreenState) {
                 PredictionScreenState.IsLoading -> CircularIndicator()
-                PredictionScreenState.PredictionClosed -> ClosedCookie(viewModel)
+                PredictionScreenState.PredictionClosed -> ClosedCookie(viewModel::clickCrack)
                 PredictionScreenState.PredictionOpen -> OpenedCookie(uiState.prediction.textPrediction)
                 PredictionScreenState.Error -> {
                     // snackbarHostState.showSnackbar("Snackbar")
@@ -86,7 +89,7 @@ internal fun PredictionScreens(
 
 @Composable
 private fun ClosedCookie(
-    viewModel: PredictionViewModel,
+   onClickCrack: () -> Unit
 ) {
     Text(
         text = stringResource(R.string.tap_cookie_title),
@@ -102,7 +105,7 @@ private fun ClosedCookie(
     )
 
     Button(
-        onClick = { viewModel.clickCrack() }) {
+        onClick = { onClickCrack()}) {
         Text(
             color = MaterialTheme.colorScheme.surfaceBright,
             style = MaterialTheme.typography.labelSmall,
