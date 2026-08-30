@@ -54,6 +54,7 @@ The application is currently under active development.
 - **Coroutines / Flow**
 - **ViewModel**
 - **Firebase / Cloud Firestore**
+- **Koin**
 - **Gradle**
 - **Git / GitHub**
 
