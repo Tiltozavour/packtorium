@@ -55,6 +55,7 @@ The application is currently under active development.
 - **ViewModel**
 - **Firebase / Cloud Firestore**
 - **Koin**
+- **Retrofit**
 - **Gradle**
 - **Git / GitHub**
 
