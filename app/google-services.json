@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "780749593410",
+    "project_id": "packtorium-2547d",
+    "storage_bucket": "packtorium-2547d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:780749593410:android:d85f70a6258064ec0c06db",
+        "android_client_info": {
+          "package_name": "com.tiltozavour.packtorium"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvHHZXfKFQKL5PUIzqbv4OOFWDfDgPjCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,6 +11,7 @@ internal data class PredictionUiState(
         imageUrl = "",
         fromWho = "",
         date = "",
+        userPrediction = false
     ),
     val currentScreenState: PredictionScreenState = PredictionScreenState.IsLoading,
 )

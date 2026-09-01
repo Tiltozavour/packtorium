@@ -98,7 +98,7 @@ internal fun CookiesMainScreen(
                     textAlign = TextAlign.Center,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    text = uiState.quota.quotaDay
+                    text = uiState.quota.quota
                 )
             }
 

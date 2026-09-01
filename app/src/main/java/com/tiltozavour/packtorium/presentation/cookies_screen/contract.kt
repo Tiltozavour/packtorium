@@ -6,7 +6,7 @@ import com.tiltozavour.packtorium.domain.entity.Quota
 @Immutable
 internal data class CookieUiState(
     val quota: Quota = Quota(
-        quotaDay = ""
+        quota = ""
     ),
     val currentScreenState: CookieScreenState = CookieScreenState.IsLoading,
 )

@@ -5,4 +5,5 @@ data class Prediction(
     val imageUrl: String,
     val fromWho: String,
     val date: String,
+    val userPrediction: Boolean
 )
