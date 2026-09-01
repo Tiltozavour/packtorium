@@ -11,11 +11,12 @@ internal class CookieMapping { //to api
         textPrediction = dto.textPrediction,
         imageUrl = dto.imageUrl,
         fromWho = dto.fromWho,
-        date = dto.date,
+        date = dto.date.toString(),
+        userPrediction = dto.userPrediction
     )
 
     fun mappingQuotaDtoToEntity(dto: QuotaDto) = Quota(
-        quotaDay = dto.quotaDay
+        quota = dto.quota
     )
 
 }

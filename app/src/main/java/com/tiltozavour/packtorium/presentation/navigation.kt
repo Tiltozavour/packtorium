@@ -10,6 +10,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.tiltozavour.packtorium.data.mapper.CookieMapping
 import com.tiltozavour.packtorium.data.repositoryImpl.PredictionRepositoryImpl
 import com.tiltozavour.packtorium.presentation.cookies_screen.CookiesMainScreen
 import com.tiltozavour.packtorium.presentation.cookies_screen.CookiesScViewModel
@@ -28,10 +29,11 @@ enum class CookiesScreens() {
 @Composable
 internal fun CookiesScreen(
     viewModelCookies: CookiesScViewModel = CookiesScViewModel(
-        repository = PredictionRepositoryImpl(),
+        repository = PredictionRepositoryImpl(CookieMapping()),
     ), //Todo DI,
     navController: NavHostController = rememberNavController(),
-    viewModelPredict: PredictionViewModel = PredictionViewModel(repository = PredictionRepositoryImpl()),
+    viewModelPredict: PredictionViewModel = PredictionViewModel(repository = PredictionRepositoryImpl(
+        CookieMapping())),
 ) {
     Scaffold() { innerPadding ->
         NavHost(

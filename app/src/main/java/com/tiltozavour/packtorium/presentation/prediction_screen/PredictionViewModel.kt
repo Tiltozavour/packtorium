@@ -2,6 +2,7 @@ package com.tiltozavour.packtorium.presentation.prediction_screen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tiltozavour.packtorium.data.ResultWrapper
 import com.tiltozavour.packtorium.domain.repository.PredictionRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,23 +19,28 @@ internal class PredictionViewModel(private val repository: PredictionRepository)
         getPrediction()
     }
 
-    private fun getPrediction() { //todo для сетевых данных в будущем
+    private fun getPrediction() {
         viewModelScope.launch {
-            try {
-                val predict = repository.getPrediction()
-                _uiPredictState.update {
-                    it.copy(
-                        prediction = predict,
-                        currentScreenState = PredictionScreenState.PredictionClosed
-                    )
+            when (val predict = repository.getPrediction()) {
+                is ResultWrapper.Success -> {
+                    _uiPredictState.update {
+                        it.copy(
+                            prediction = predict.data,
+                            currentScreenState = PredictionScreenState.PredictionClosed
+                        )
+                    }
                 }
-            } catch (e: Exception) {
-                _uiPredictState.update {
-                    it.copy(
-                        currentScreenState = PredictionScreenState.Error
-                    )
-                }
+
+                is ResultWrapper.Error -> errorState()
             }
+        }
+    }
+
+    private fun errorState() {
+        _uiPredictState.update {
+            it.copy(
+                currentScreenState = PredictionScreenState.Error
+            )
         }
     }
 
@@ -45,5 +51,4 @@ internal class PredictionViewModel(private val repository: PredictionRepository)
             )
         }
     }
-
 }
