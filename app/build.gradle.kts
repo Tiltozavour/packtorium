@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.compose.compiler)
     kotlin("plugin.serialization") version "2.0.21"
     id("com.google.gms.google-services")
+    id("com.google.devtools.ksp")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -31,8 +33,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     buildFeatures {
@@ -67,6 +69,12 @@ dependencies {
     //Firebase
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.firestore)
+
+    //Hilt
+    ksp(libs.hilt.android.compiler)
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.lifecycle.viewmodel.compose)
+
 
 
     // test

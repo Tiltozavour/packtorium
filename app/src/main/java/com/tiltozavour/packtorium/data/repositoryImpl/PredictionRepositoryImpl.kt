@@ -11,12 +11,13 @@ import com.tiltozavour.packtorium.domain.entity.Prediction
 import com.tiltozavour.packtorium.domain.entity.Quota
 import com.tiltozavour.packtorium.domain.repository.PredictionRepository
 import kotlinx.coroutines.tasks.await
+import javax.inject.Inject
 
-internal class PredictionRepositoryImpl(
-    private val mapper: CookieMapping, //todo DI
+internal class PredictionRepositoryImpl @Inject constructor(
+    private val mapper: CookieMapping
 ) : PredictionRepository {
 
-    val bd = Firebase.firestore
+   private val bd = Firebase.firestore
 
     override suspend fun getQuota(): ResultWrapper<Quota> {
         return try {

@@ -4,8 +4,9 @@ import com.tiltozavour.packtorium.data.dto.PredictionDto
 import com.tiltozavour.packtorium.data.dto.QuotaDto
 import com.tiltozavour.packtorium.domain.entity.Prediction
 import com.tiltozavour.packtorium.domain.entity.Quota
+import javax.inject.Inject
 
-internal class CookieMapping { //to api
+internal class CookieMapping @Inject constructor() { //to api
 
     fun mappingPredictionDtoToEntity(dto: PredictionDto) = Prediction(
         textPrediction = dto.textPrediction,
