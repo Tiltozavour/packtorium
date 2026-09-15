@@ -4,12 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tiltozavour.packtorium.data.ResultWrapper
 import com.tiltozavour.packtorium.domain.repository.PredictionRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import jakarta.inject.Inject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-internal class PredictionViewModel(private val repository: PredictionRepository) : ViewModel() {
+@HiltViewModel
+internal class PredictionViewModel @Inject constructor(private val repository: PredictionRepository) : ViewModel() {
 
 
     private val _uiPredictState = MutableStateFlow(PredictionUiState())
